@@ -1,0 +1,182 @@
+// ====== Arreglos globales ======
+const int MAX_HABITACIONES = 20;
+int[] numeros = new int[MAX_HABITACIONES];
+string[] tipos = new string[MAX_HABITACIONES];
+double[] precios = new double[MAX_HABITACIONES];
+bool[] disponibles = new bool[MAX_HABITACIONES];
+int totalHabitaciones = 0;
+
+// ====== Función: Mostrar menú principal ======
+void MenuPrincipal()
+{
+    int opcion = 0;
+
+    while (opcion != 4)
+    {
+        Console.WriteLine("\n===== MENÚ PRINCIPAL =====");
+        Console.WriteLine("1. Gestión de habitaciones");
+        Console.WriteLine("2. Gestión de huéspedes");
+        Console.WriteLine("3. Gestión de reservas");
+        Console.WriteLine("4. Salir");
+        Console.Write("Seleccione una opción: ");
+        opcion = int.Parse(Console.ReadLine());
+
+        if (opcion == 1)
+        {
+            GestionHabitaciones();
+        }
+        else if (opcion == 2)
+        {
+            Console.WriteLine("Gestión de huéspedes (en construcción)");
+        }
+        else if (opcion == 3)
+        {
+            Console.WriteLine("Gestión de reservas (en construcción)");
+        }
+        else if (opcion == 4)
+        {
+            Console.WriteLine("Saliendo del programa...");
+        }
+        else
+        {
+            Console.WriteLine("⚠️ Opción inválida. Intente de nuevo.");
+        }
+    }
+}
+
+// ====== Función: Submenú de gestión de habitaciones ======
+void GestionHabitaciones()
+{
+    int opcion = 0;
+
+    while (opcion != 5)
+    {
+        Console.WriteLine("\n--- GESTIÓN DE HABITACIONES ---");
+        Console.WriteLine("1. Registrar una nueva habitación");
+        Console.WriteLine("2. Ver lista de habitaciones registradas");
+        Console.WriteLine("3. Editar información de una habitación");
+        Console.WriteLine("4. Ver disponibilidad de habitaciones");
+        Console.WriteLine("5. Volver al menú principal");
+        Console.Write("Seleccione una opción: ");
+        opcion = int.Parse(Console.ReadLine());
+
+        if (opcion == 1)
+        {
+            RegistrarHabitacion();
+        }
+        else if (opcion == 2)
+        {
+            VerHabitaciones();
+        }
+        else if (opcion == 3)
+        {
+            EditarHabitacion();
+        }
+        else if (opcion == 4)
+        {
+            VerDisponibilidad();
+        }
+        else if (opcion == 5)
+        {
+            Console.WriteLine("Volviendo al menú principal...");
+        }
+        else
+        {
+            Console.WriteLine("⚠️ Opción inválida. Intente de nuevo.");
+        }
+    }
+}
+
+// ====== Función: Registrar habitación ======
+void RegistrarHabitacion()
+{
+    if (totalHabitaciones >= MAX_HABITACIONES)
+    {
+        Console.WriteLine("No se pueden registrar más habitaciones.");
+        return;
+    }
+
+    Console.Write("Ingrese el número de la habitación: ");
+    int numero = int.Parse(Console.ReadLine());
+
+    Console.Write("Ingrese el tipo de habitación (Sencilla / Doble / Suite): ");
+    string tipo = Console.ReadLine();
+
+    Console.Write("Ingrese el precio por noche: ");
+    double precio = double.Parse(Console.ReadLine());
+
+    numeros[totalHabitaciones] = numero;
+    tipos[totalHabitaciones] = tipo;
+    precios[totalHabitaciones] = precio;
+    disponibles[totalHabitaciones] = true;
+    totalHabitaciones++;
+
+    Console.WriteLine("✅ Habitación registrada correctamente.");
+}
+
+// ====== Función: Ver lista de habitaciones ======
+void VerHabitaciones()
+{
+    if (totalHabitaciones == 0)
+    {
+        Console.WriteLine("No hay habitaciones registradas.");
+        return;
+    }
+
+    Console.WriteLine("\n--- LISTA DE HABITACIONES ---");
+    for (int i = 0; i < totalHabitaciones; i++)
+    {
+        Console.WriteLine($"N°: {numeros[i]} | Tipo: {tipos[i]} | Precio: ${precios[i]} | Disponible: {disponibles[i]}");
+    }
+}
+
+// ====== Función: Editar habitación ======
+void EditarHabitacion()
+{
+    Console.Write("Ingrese el número de la habitación que desea editar: ");
+    int buscar = int.Parse(Console.ReadLine());
+    int indice = -1;
+
+    for (int i = 0; i < totalHabitaciones; i++)
+    {
+        if (numeros[i] == buscar)
+        {
+            indice = i;
+            break;
+        }
+    }
+
+    if (indice == -1)
+    {
+        Console.WriteLine("⚠️ Habitación no encontrada.");
+        return;
+    }
+
+    Console.Write("Nuevo tipo de habitación: ");
+    tipos[indice] = Console.ReadLine();
+
+    Console.Write("Nuevo precio por noche: ");
+    precios[indice] = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("✅ Información actualizada correctamente.");
+}
+
+// ====== Función: Ver disponibilidad ======
+void VerDisponibilidad()
+{
+    if (totalHabitaciones == 0)
+    {
+        Console.WriteLine("No hay habitaciones registradas.");
+        return;
+    }
+
+    Console.WriteLine("\n--- DISPONIBILIDAD DE HABITACIONES ---");
+    for (int i = 0; i < totalHabitaciones; i++)
+    {
+        string estado = disponibles[i] ? "Disponible" : "Ocupada";
+        Console.WriteLine($"Hab. {numeros[i]} - {estado}");
+    }
+}
+
+// ====== INICIO DEL PROGRAMA ======
+MenuPrincipal();
