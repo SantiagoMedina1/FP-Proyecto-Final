@@ -1,10 +1,10 @@
 // ====== Arreglos globales ======
 const int MAX_HABITACIONES = 20;
-int[] numeros = new int[MAX_HABITACIONES];
-string[] tipos = new string[MAX_HABITACIONES];
-double[] precios = new double[MAX_HABITACIONES];
-bool[] disponibles = new bool[MAX_HABITACIONES];
-int totalHabitaciones = 0;
+int[] numeroHabitacion = new int[MAX_HABITACIONES];
+string[] tipoHabitacion = new string[MAX_HABITACIONES];
+double[] precioPorNoche = new double[MAX_HABITACIONES];
+bool[] habitacionDisponible = new bool[MAX_HABITACIONES];
+int cantidadHabitaciones = 0;
 
 // ====== Función: Mostrar menú principal ======
 void MenuPrincipal()
@@ -66,15 +66,15 @@ void GestionHabitaciones()
         }
         else if (opcion == 2)
         {
-            VerHabitaciones();
+            VerListaHabitaciones();
         }
         else if (opcion == 3)
         {
-            EditarHabitacion();
+            EditarInformacionHabitacion();
         }
         else if (opcion == 4)
         {
-            VerDisponibilidad();
+            MostrarDisponibilidadHabitaciones();
         }
         else if (opcion == 5)
         {
@@ -90,7 +90,7 @@ void GestionHabitaciones()
 // ====== Función: Registrar habitación ======
 void RegistrarHabitacion()
 {
-    if (totalHabitaciones >= MAX_HABITACIONES)
+    if (cantidadHabitaciones >= MAX_HABITACIONES)
     {
         Console.WriteLine("No se pueden registrar más habitaciones.");
         return;
@@ -105,41 +105,41 @@ void RegistrarHabitacion()
     Console.Write("Ingrese el precio por noche: ");
     double precio = double.Parse(Console.ReadLine());
 
-    numeros[totalHabitaciones] = numero;
-    tipos[totalHabitaciones] = tipo;
-    precios[totalHabitaciones] = precio;
-    disponibles[totalHabitaciones] = true;
-    totalHabitaciones++;
+    numeroHabitacion[cantidadHabitaciones] = numero;
+    tipoHabitacion[cantidadHabitaciones] = tipo;
+    precioPorNoche[cantidadHabitaciones] = precio;
+    habitacionDisponible[cantidadHabitaciones] = true;
+    cantidadHabitaciones++;
 
     Console.WriteLine("✅ Habitación registrada correctamente.");
 }
 
 // ====== Función: Ver lista de habitaciones ======
-void VerHabitaciones()
+void VerListaHabitaciones()
 {
-    if (totalHabitaciones == 0)
+    if (cantidadHabitaciones == 0)
     {
         Console.WriteLine("No hay habitaciones registradas.");
         return;
     }
 
     Console.WriteLine("\n--- LISTA DE HABITACIONES ---");
-    for (int i = 0; i < totalHabitaciones; i++)
+    for (int i = 0; i < cantidadHabitaciones; i++)
     {
-        Console.WriteLine($"N°: {numeros[i]} | Tipo: {tipos[i]} | Precio: ${precios[i]} | Disponible: {disponibles[i]}");
+        Console.WriteLine($"N°: {numeroHabitacion[i]} | Tipo: {tipoHabitacion[i]} | Precio: ${precioPorNoche[i]} | Disponible: {habitacionDisponible[i]}");
     }
 }
 
-// ====== Función: Editar habitación ======
-void EditarHabitacion()
+// ====== Función: Editar información de habitación ======
+void EditarInformacionHabitacion()
 {
     Console.Write("Ingrese el número de la habitación que desea editar: ");
-    int buscar = int.Parse(Console.ReadLine());
+    int numeroBuscado = int.Parse(Console.ReadLine());
     int indice = -1;
 
-    for (int i = 0; i < totalHabitaciones; i++)
+    for (int i = 0; i < cantidadHabitaciones; i++)
     {
-        if (numeros[i] == buscar)
+        if (numeroHabitacion[i] == numeroBuscado)
         {
             indice = i;
             break;
@@ -153,28 +153,28 @@ void EditarHabitacion()
     }
 
     Console.Write("Nuevo tipo de habitación: ");
-    tipos[indice] = Console.ReadLine();
+    tipoHabitacion[indice] = Console.ReadLine();
 
     Console.Write("Nuevo precio por noche: ");
-    precios[indice] = double.Parse(Console.ReadLine());
+    precioPorNoche[indice] = double.Parse(Console.ReadLine());
 
     Console.WriteLine("✅ Información actualizada correctamente.");
 }
 
-// ====== Función: Ver disponibilidad ======
-void VerDisponibilidad()
+// ====== Función: Ver disponibilidad de habitaciones ======
+void MostrarDisponibilidadHabitaciones()
 {
-    if (totalHabitaciones == 0)
+    if (cantidadHabitaciones == 0)
     {
         Console.WriteLine("No hay habitaciones registradas.");
         return;
     }
 
     Console.WriteLine("\n--- DISPONIBILIDAD DE HABITACIONES ---");
-    for (int i = 0; i < totalHabitaciones; i++)
+    for (int i = 0; i < cantidadHabitaciones; i++)
     {
-        string estado = disponibles[i] ? "Disponible" : "Ocupada";
-        Console.WriteLine($"Hab. {numeros[i]} - {estado}");
+        string estado = habitacionDisponible[i] ? "Disponible" : "Ocupada";
+        Console.WriteLine($"Hab. {numeroHabitacion[i]} - {estado}");
     }
 }
 
