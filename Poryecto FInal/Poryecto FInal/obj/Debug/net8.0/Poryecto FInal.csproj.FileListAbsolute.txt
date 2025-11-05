@@ -1,0 +1,14 @@
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\bin\Debug\net8.0\Poryecto FInal.exe
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\bin\Debug\net8.0\Poryecto FInal.deps.json
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\bin\Debug\net8.0\Poryecto FInal.runtimeconfig.json
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\bin\Debug\net8.0\Poryecto FInal.dll
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\bin\Debug\net8.0\Poryecto FInal.pdb
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\Poryecto FInal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\Poryecto FInal.AssemblyInfoInputs.cache
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\Poryecto FInal.AssemblyInfo.cs
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\Poryecto FInal.csproj.CoreCompileInputs.cache
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\Poryecto FInal.dll
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\refint\Poryecto FInal.dll
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\Poryecto FInal.pdb
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\Poryecto FInal.genruntimeconfig.cache
+C:\Users\santi\OneDrive\Desktop\Santiago Programacion\Poryecto FInal\Poryecto FInal\obj\Debug\net8.0\ref\Poryecto FInal.dll
